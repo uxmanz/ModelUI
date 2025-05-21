@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>false</UseWPF>
+		<TrimMode>copyused</TrimMode>
+		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+		<ApplicationIcon>Assets\main.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<VersionMajor Condition="'$(VersionMajor)' == ''">1</VersionMajor>
+		<VersionMinor Condition="'$(VersionMinor)' == ''">0</VersionMinor>
+		<VersionPatch Condition="'$(VersionPatch)' == ''">$([System.DateTime]::Now.ToString("ddMM"))</VersionPatch>
+		<VersionRevision Condition="'$(VersionRevision)' == ''">$([System.DateTime]::Now.ToString("hhmm"))</VersionRevision>
+		<Version>$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionRevision)</Version>
+		<Copyright>Copyright © $([System.DateTime]::Now.ToString("yyyy"))</Copyright>
+		<Product>ModelUI Version: $(VersionMajor).$(VersionMinor).$([System.DateTime]::Now.ToString("ddMMyy.hhmm"))</Product>
+	</PropertyGroup>
+
+	<ItemGroup Label="Microsoft Logging" Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(DefineConstants), '^(.*;)*MS_LOGGING(;.*)*$'))">
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Properties\PublishProfiles\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resorce Include="Assets\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- <PackageReference Include="ActiproSoftware.Controls.Avalonia.Pro" Version="25.1.1" /> -->
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.ColorPicker" Version="25.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.1.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Avalonia.Desktop" Version="11.3.0" />
+		<PackageReference Include="Avalonia" Version="11.3.0" />
+		<PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0" />
+		<PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.0" />
+		<PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.0" />
+		<PackageReference Include="Avalonia.ReactiveUI" Version="11.3.0" />
+		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+		<!-- <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.2.5" /> -->
+	</ItemGroup>
+	<ItemGroup>
+
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="OpenSSL.NativeRuntime.NET" Version="1.0.21.1" />
+		<PackageReference Include="Salaros.ConfigParser" Version="0.3.8" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.10.196-beta" />
+	</ItemGroup>
+</Project>

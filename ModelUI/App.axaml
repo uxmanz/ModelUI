@@ -1,0 +1,15 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
+             x:Class="ModelUI.App"
+             RequestedThemeVariant="Default">   
+
+    <Application.Styles>
+               
+                <FluentTheme />
+        <actipro:ModernTheme  Includes="NativeColorPicker, NativeDataGrid" />
+        <StyleInclude Source="Actipro/Views/ApplicationStyles.axaml" />
+        <StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Fluent/Fluent.xaml" />
+    </Application.Styles>
+   
+</Application>

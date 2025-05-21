@@ -1,0 +1,61 @@
+<UserControl
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="750"
+             x:Class="ModelUI.Views.MainView">
+	<DockPanel>
+		<TabControl>
+			<TabItem IsVisible="True">
+				<TabItem.Header>
+					<TextBlock VerticalAlignment="Top" FontSize="18">MainView</TextBlock>
+				</TabItem.Header>
+				<DockPanel>
+					<WrapPanel Orientation="Horizontal" Margin="1">
+						
+						<Border Background="{actipro:ThemeResource Container2BackgroundBrush}" BorderBrush="{actipro:ThemeResource Container2BorderBrush}"
+                                BorderThickness="1"   Margin="4"
+                                CornerRadius="{actipro:ScaledCornerRadius 1.5}"
+                                Padding="{actipro:ScaledThickness 5}" Width="400"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+							<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+								<StackPanel Classes="form-input">
+									<TextBlock Classes="theme-form-control-label" Text="Visibility" />
+									<Slider Value="50" Minimum="0" Maximum="100"/>
+								</StackPanel>
+								<StackPanel Classes="form-input">
+									<TextBlock Classes="theme-form-control-label" Text="Visibility" />
+									<Slider Value="50" Minimum="0" Maximum="100" />
+								</StackPanel>
+								<StackPanel Classes="form-input">
+									<TextBlock Classes="theme-form-control-label" Text="Visibility" />
+									<Slider Value="50" Minimum="0" Maximum="100" />
+								</StackPanel>
+								<StackPanel Classes="form-input">
+									<Button Classes="theme-solid accent" Margin="3"  Content="Save Visibility" HorizontalAlignment="Stretch" />
+									<Button Classes="theme-solid accent" Margin="3" Content="Open Settings" HorizontalAlignment="Stretch"  />
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</WrapPanel>
+				</DockPanel>
+			</TabItem>
+			<TabItem IsVisible="True">
+				<TabItem.Header>
+					<TextBlock VerticalAlignment="Top" FontSize="18">Database</TextBlock>
+				</TabItem.Header>
+				<ScrollViewer>
+					<StackPanel Name="dbStackPanel">
+                        <ScrollViewer Height="600">
+                            <StackPanel Name="dbGridPanel" />
+                        </ScrollViewer>
+                        <Button Name="SaveButton" Classes="theme-solid accent" Margin="3" Click="SaveToDB_Button_OnClick" Content="Save to DB" HorizontalAlignment="Stretch" />
+
+					</StackPanel>
+				</ScrollViewer>
+			</TabItem>
+		</TabControl>
+	</DockPanel>
+</UserControl>

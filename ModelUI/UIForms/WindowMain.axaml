@@ -1,0 +1,202 @@
+<Window
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
+	xmlns:modelUi="clr-namespace:ModelUI"
+        x:Class="ModelUI.WindowMain"
+        Width="860" Height="590"
+        WindowStartupLocation="CenterScreen"
+        Icon="avares://ModelUI/Assets/main.ico"
+        Classes="sample-presenter"
+        Title="Entity Adder">
+	<Window.Styles>
+		<Style Selector="TextBlock.h1">
+			<Setter Property="Margin" Value="{actipro:ScaledThickness '0, 0, 0, 2'}" />
+			<!-- theme-text-heading-->
+			<Setter Property="Theme" Value="{actipro:ControlTheme TextBlockHeading}" />
+			<!-- size-xl -->
+			<Setter Property="FontSize" Value="{actipro:ThemeResource HeadingFontSizeExtraLarge}" />
+			<Setter Property="FontWeight" Value="{actipro:ThemeResource HeadingFontWeightExtraLarge}" />
+			<Setter Property="Foreground" Value="{actipro:ThemeResource HeadingForegroundBrushExtraLarge}" />
+		</Style>
+		<Style Selector="TextBlock.h2">
+			<Setter Property="Margin" Value="{actipro:ScaledThickness '0, 6, 0, 2'}" />
+			<!-- theme-text-heading-->
+			<Setter Property="Theme" Value="{actipro:ControlTheme TextBlockHeading}" />
+			<!-- size-md -->
+			<Setter Property="FontSize" Value="{actipro:ThemeResource HeadingFontSizeMedium}" />
+			<Setter Property="FontWeight" Value="{actipro:ThemeResource HeadingFontWeightMedium}" />
+			<Setter Property="Foreground" Value="{actipro:ThemeResource HeadingForegroundBrushMedium}" />
+		</Style>
+		<Style Selector="StackPanel.form-input-group">
+			<Setter Property="Margin" Value="{actipro:ScaledThickness '0, 4, 0, 0'}" />
+			<Setter Property="Spacing" Value="{actipro:ScaledDouble 4}" />
+		</Style>
+		<Style Selector="StackPanel.form-input">
+			<Style Selector="^ CheckBox">
+				<Setter Property="Margin" Value="{actipro:ScaledThickness '0, 1, 0, 0'}" />
+			</Style>
+			<Style Selector="^ RadioButton">
+				<Setter Property="Margin" Value="{actipro:ScaledThickness '0, 0.5, 4, 0'}" />
+			</Style>
+		</Style>
+		<Style Selector="StackPanel.switch-input-group">
+			<Setter Property="Margin" Value="{actipro:ScaledThickness '0, 4, 0, 0'}" />
+			<Setter Property="Spacing" Value="{actipro:ScaledDouble 2}" />
+			<Style Selector="^ ToggleSwitch">
+				<Setter Property="OnContent" Value="" />
+				<Setter Property="OffContent" Value="" />
+			</Style>
+		</Style>
+		<Style Selector="UniformGrid.form-buttons">
+			<Setter Property="HorizontalAlignment" Value="Left" />
+			<Style Selector="^ Button">
+				<Setter Property="Margin" Value="{actipro:ScaledThickness '0, 6, 2, 0'}" />
+			</Style>
+		</Style>
+	</Window.Styles>
+	<DockPanel>
+		<actipro:ChromedTitleBar DockPanel.Dock="Top">
+			<actipro:ChromedTitleBar.Resources>
+				<actipro:ComparisonConverter x:Key="RightContentMarginConverter">
+					<actipro:ComparisonConverter.TrueResult>
+						<Thickness>0,0,20,0</Thickness>
+					</actipro:ComparisonConverter.TrueResult>
+					<actipro:ComparisonConverter.FalseResult>
+						<Thickness>0,0,0,0</Thickness>
+					</actipro:ComparisonConverter.FalseResult>
+				</actipro:ComparisonConverter>
+			</actipro:ChromedTitleBar.Resources>
+			<actipro:ChromedTitleBar.LeftContent>
+				<StackPanel Orientation="Horizontal">
+					<Button x:Name="applicationButton" Margin="0,0,20,0"
+                            ContentTemplate="{actipro:GlyphTemplate Menu16}"
+                            Theme="{actipro:ControlTheme TitleBarButton}"
+                            Click="ApplicationButton_OnClick"
+                            ToolTip.Tip="Toggle Sidebar" />
+					<Image x:Name="viewImage" DockPanel.Dock="Left" Width="40" Height="40" Source="/Assets/main_48.png" VerticalAlignment="Center" IsHitTestVisible="False">
+						<Image.Effect>
+							<DropShadowEffect OffsetX="0" OffsetY="1" BlurRadius="3" Opacity="{DynamicResource {actipro:ThemeResourceKey ShadowOpacity}}" />
+						</Image.Effect>
+					</Image>
+					<StackPanel Margin="10,7,0,7" VerticalAlignment="Center" IsHitTestVisible="False">
+						<TextBlock Name="subtitleTextBlock" Text="Sub" FontSize="12" TextTrimming="CharacterEllipsis" Opacity="0.85" />
+						<TextBlock Name="titleTextBlock" Margin="0,-2,0,0" Text="Main" FontSize="18" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" />
+					</StackPanel>
+				</StackPanel>
+			</actipro:ChromedTitleBar.LeftContent>
+			<actipro:ChromedTitleBar.RightContent>
+				<StackPanel Margin="{Binding $parent[actipro:ChromedTitleBar].HasCaptionButtons, Converter={StaticResource RightContentMarginConverter}}" Orientation="Horizontal">
+					<Button ContentTemplate="{actipro:GlyphTemplate Home16}"
+							
+							Theme="{actipro:ControlTheme TitleBarButton}"
+							ToolTip.Tip="Home" />
+					<Button ContentTemplate="{actipro:GlyphTemplate Previous16}"
+							Theme="{actipro:ControlTheme TitleBarButton}"
+							ToolTip.Tip="Previous" />
+					<Button
+							ContentTemplate="{actipro:GlyphTemplate Next16}"
+							Theme="{actipro:ControlTheme TitleBarButton}"
+							ToolTip.Tip="Next" />
+					<actipro:ToggleThemeButton
+							Theme="{actipro:ControlTheme TitleBarToggleThemeButton}"
+							ToolTip.Tip="Toggle Theme" />
+					<Button Theme="{actipro:ControlTheme TitleBarButton}"
+							ToolTip.Tip="View">
+						<Button.Flyout>
+							<MenuFlyout Placement="Bottom" Opening="OnViewMenuOpening">
+								<MenuItem Classes="theme-menuitem-heading" Header="Controls" />
+								<MenuItem Header="Release History" Command="{Binding NavigateViewToItemInfoCommand}"  />
+								<Separator />
+								<Separator />
+								<MenuItem Classes="theme-menuitem-heading" Header="Utilities" />
+								<MenuItem Header="Settings" Command="{Binding NavigateViewToItemInfoCommand}" CommandParameter="https://ActiproSoftware/SampleBrowser/Utilities/ColorPalette/ColorPaletteView" />
+								<MenuItem Header="Network" Command="{Binding NavigateViewToItemInfoCommand}" CommandParameter="https://ActiproSoftware/SampleBrowser/Utilities/ThemeResourceBrowser/ThemeResourceBrowserView" />
+								<Separator />
+								<Separator />
+								<MenuItem Classes="theme-menuitem-heading" Header="Test Configuration" />
+							</MenuFlyout>
+						</Button.Flyout>
+						<StackPanel Orientation="Horizontal">
+							<ContentPresenter ContentTemplate="{actipro:GlyphTemplate Views16}" />
+							<ContentPresenter Margin="0,0,-3,0" ContentTemplate="{actipro:GlyphTemplate DropDownArrow12}" VerticalAlignment="Center" />
+						</StackPanel>
+					</Button>
+				</StackPanel>
+			</actipro:ChromedTitleBar.RightContent>
+		</actipro:ChromedTitleBar>
+		<!-- Status Bar -->
+		<Border DockPanel.Dock="Bottom" Background="{actipro:ThemeResource StatusBarBackgroundBrush}"
+                BorderBrush="{actipro:ThemeResource StatusBarBorderBrush}" BorderThickness="{actipro:ThemeResource StatusBarBorderThickness}"
+                TextElement.Foreground="{actipro:ThemeResource StatusBarForegroundBrush}">
+			<Grid Margin="0,0,0,1" ColumnDefinitions="*,Auto,Auto" >
+				<TextBlock Margin="{actipro:ScaledThickness '2.5,0.5'}" Text="Status" Name="statusTextBlock" />
+				<TextBlock Grid.Column="1" Margin="{actipro:ScaledThickness '0,0.5'}" Text="Version" Name="versionTextBlock"/>
+				<actipro:WindowResizeGrip Grid.Column="2" />
+			</Grid>
+		</Border>
+		<Border  Background="Transparent" BorderBrush="{actipro:ThemeResource Container2BorderBrush}" BorderThickness="0,1,0,0">
+			<SplitView x:Name="splitView" DisplayMode="Inline" IsPaneOpen="False" OpenPaneLength="236" PanePlacement="Left">
+				<SplitView.Pane>
+					<StackPanel Orientation="Vertical">
+						<ListBox SelectionChanged="SelectingItemsControl_OnSelectionChanged">
+							<StackPanel HorizontalAlignment="Center">
+								<Image x:Name="viewImageConnection" DockPanel.Dock="Left" Width="60" Height="60" Source="/Assets/main_256.png" VerticalAlignment="Center" IsHitTestVisible="False">
+									<Image.Effect>
+										<DropShadowEffect OffsetX="0" OffsetY="1" BlurRadius="3" Opacity="{DynamicResource {actipro:ThemeResourceKey ShadowOpacity}}" />
+									</Image.Effect>
+								</Image>
+								<TextBlock Name="sidebarTitleTextBlock"	HorizontalAlignment="Center"
+                                    FontSize="18"
+                                    FontWeight="DemiBold"
+                                    Text="ModelUI" />
+								<TextBlock	 HorizontalAlignment="Center"
+                                               FontSize="12" Name="ConnectionAstStatusTextBlock"
+                                               FontWeight="Thin"
+                                               Margin="3,1,0,0"
+                                               Text="Status : Active" />
+							</StackPanel>
+							<StackPanel Orientation="Horizontal">
+								<Image x:Name="viewImag2e" Source="/Assets/main_256.png" DockPanel.Dock="Left" Width="24" Height="24" VerticalAlignment="Center" IsHitTestVisible="False">
+									<Image.Effect>
+										<DropShadowEffect OffsetX="0" OffsetY="1" BlurRadius="3" Opacity="{DynamicResource {actipro:ThemeResourceKey ShadowOpacity}}" />
+									</Image.Effect>
+								</Image>
+								<TextBlock Text="Main View" FontSize="20" Margin="10"></TextBlock>
+							</StackPanel>
+							<StackPanel Orientation="Horizontal">
+								<Image  Source="/Assets/main_256.png" DockPanel.Dock="Left" Width="24" Height="24" VerticalAlignment="Center" IsHitTestVisible="False">
+									<Image.Effect>
+										<DropShadowEffect OffsetX="0" OffsetY="1" BlurRadius="3" Opacity="{DynamicResource {actipro:ThemeResourceKey ShadowOpacity}}" />
+									</Image.Effect>
+								</Image>
+								<TextBlock Text="Delta View" FontSize="20" Margin="10"></TextBlock>
+							</StackPanel>
+							<StackPanel Orientation="Horizontal">
+								<Image  Source="/Assets/main_256.png" DockPanel.Dock="Left" Width="24" Height="24" VerticalAlignment="Center" IsHitTestVisible="False">
+									<Image.Effect>
+										<DropShadowEffect OffsetX="0" OffsetY="1" BlurRadius="3" Opacity="{DynamicResource {actipro:ThemeResourceKey ShadowOpacity}}" />
+									</Image.Effect>
+								</Image>
+								<TextBlock Text="Some View" FontSize="20" Margin="10"></TextBlock>
+							</StackPanel>
+						</ListBox>
+					</StackPanel>
+				</SplitView.Pane>
+				<!-- NOTE: Remove custom transition class and switch back to PageSlide once TransitioningContentControl has a direction property that can be bound to ViewTransitionForward -->
+				<TransitioningContentControl x:Name="transitionControl" >
+					<!-- Content="{Binding ViewElement}" -->
+					<TransitioningContentControl.PageTransition>
+						<modelUi:DirectionalPageSlide
+							Orientation="Horizontal"
+							Duration="{actipro:AnimationSetting EmphasizedMoveDuration}"
+							SlideInEasing="{actipro:AnimationSetting EmphasizedMoveEasing}"
+							SlideOutEasing="{actipro:AnimationSetting EmphasizedMoveEasing}" />
+					</TransitioningContentControl.PageTransition>
+				</TransitioningContentControl>
+			</SplitView>
+		</Border>
+	</DockPanel>
+</Window>

@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
+             x:Class="ModelUI.Views.DeltaView" MinWidth="800">
+   
+		<DockPanel>
+			<TabControl>
+				<TabItem IsVisible="True">
+					<TabItem.Header>
+						<TextBlock VerticalAlignment="Top" FontSize="18">DeltaView</TextBlock>
+					</TabItem.Header>
+					<DockPanel>
+                        <ScrollViewer>
+                            <StackPanel Orientation="Vertical" >
+                                <Border Background="{actipro:ThemeResource Container2BackgroundBrush}" BorderBrush="{actipro:ThemeResource Container2BorderBrush}"
+                                        BorderThickness="1"    Margin="4"
+                                        CornerRadius="{actipro:ScaledCornerRadius 1.5}"
+                                        Padding="{actipro:ScaledThickness 5}"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Classes="h3" Margin="5,0,0,15">Delta View</TextBlock>
+                                        <StackPanel  Orientation="Vertical" VerticalAlignment="Center"  >
+                                            <TextBlock  FontSize="12" Text="Total Active Users: 0" VerticalAlignment="Center"/>
+                                            <TextBlock FontSize="12" Text="List:" VerticalAlignment="Center"/>
+
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Background="{actipro:ThemeResource Container2BackgroundBrush}" BorderBrush="{actipro:ThemeResource Container2BorderBrush}"
+                                        BorderThickness="1"    Margin="4"
+                                        CornerRadius="{actipro:ScaledCornerRadius 1.5}"
+                                        Padding="{actipro:ScaledThickness 5}"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Classes="h3" Margin="5,0,0,15">Settings</TextBlock>
+                                        <TextBlock Text="Time: ??" VerticalAlignment="Center" FontSize="14" />
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </ScrollViewer>
+					</DockPanel>
+				</TabItem>
+				
+			</TabControl>
+		</DockPanel>
+		
+</UserControl>
