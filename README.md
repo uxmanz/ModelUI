@@ -86,7 +86,7 @@ The included `BackupData.bat` script can help you archive your project:
 
 **Release Configuration Example:**
 
-![Release Settings](Docs/Screenshot_52.png)
+![Release Settings](Docs/Screenshot%20(52).png)
 
 ---
 
