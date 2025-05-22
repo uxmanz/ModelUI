@@ -101,5 +101,3 @@ Pull requests and contributions are welcome! If you find a bug or have a feature
 This project is open-source and available under the [MIT License](LICENSE).
 
 ---
-
-Let me know if you'd like me to adjust anything further or if you're ready to publish this version on GitHub!
