@@ -45,12 +45,10 @@ You can build and publish the app as a **self-contained executable** using Avalo
 If you want to create your own app based on this boilerplate:
 
 1. **Fork** the repository.
-2. Run the `RenameProject.bat` script (Windows only).
+2. Run the `RenameProject.bat` or `RenameProject.sh` script (Windows or Linux).
 3. Enter your new project name when prompted.
 
 This will update solution files and namespaces automatically.
-
-> 🐧 A Linux-compatible `.sh` version is planned for future updates.
 
 ---
 
