@@ -5,7 +5,7 @@
              RequestedThemeVariant="Default">   
 
     <Application.Styles>
-               
+        <actipro:ModernTheme Includes="Pro" />
                 <FluentTheme />
         <actipro:ModernTheme  Includes="NativeColorPicker, NativeDataGrid" />
         <StyleInclude Source="Actipro/Views/ApplicationStyles.axaml" />

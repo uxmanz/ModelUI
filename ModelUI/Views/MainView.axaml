@@ -34,7 +34,7 @@
 									<Slider Value="50" Minimum="0" Maximum="100" />
 								</StackPanel>
 								<StackPanel Classes="form-input">
-									<Button Classes="theme-solid accent" Margin="3"  Content="Save Visibility" HorizontalAlignment="Stretch" />
+									<Button Classes="theme-solid accent" Margin="3"  Content="Save Visibility" HorizontalAlignment="Stretch" Click="Button_OnClick"/>
 									<Button Classes="theme-solid accent" Margin="3" Content="Open Settings" HorizontalAlignment="Stretch"  />
 								</StackPanel>
 							</StackPanel>

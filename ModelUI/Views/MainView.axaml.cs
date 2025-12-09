@@ -14,13 +14,13 @@ using Avalonia;
 using Avalonia.Layout;
 using Database;
 using System.Text.Json;
+using ActiproSoftware.UI.Avalonia.Controls;
 using JsonException = Newtonsoft.Json.JsonException;
 
 namespace ModelUI.Views
 {
     public partial class MainView : UserControl
     {
-
         private WindowMain mainWindow;
         private List<generalDataClass> dbData = new();
         private Dictionary<int, (TextBox jsonBox, TextBox anyDataBox)> editableFields = new();
@@ -36,6 +36,7 @@ namespace ModelUI.Views
             mainWindow = MainWindow;
             PopulateDatabaseFields();
         }
+
         /// <summary>
         /// Populates the database fields in the UI.
         /// Is it ugly, yes. But it works.
@@ -52,16 +53,18 @@ namespace ModelUI.Views
             var headerGrid = new Grid
             {
                 ColumnDefinitions =
-        {
-            new ColumnDefinition(GridLength.Star),
-            new ColumnDefinition(GridLength.Star),
-            new ColumnDefinition(GridLength.Star)
-        },
+                {
+                    new ColumnDefinition(GridLength.Star),
+                    new ColumnDefinition(GridLength.Star),
+                    new ColumnDefinition(GridLength.Star)
+                },
                 Background = Brushes.LightGray
             };
             headerGrid.Children.Add(new TextBlock { Text = "Name", FontWeight = FontWeight.Bold });
-            headerGrid.Children.Add(new TextBlock { Text = "JSON", FontWeight = FontWeight.Bold, Margin = new Thickness(4, 0, 0, 0) });
-            headerGrid.Children.Add(new TextBlock { Text = "AnyData", FontWeight = FontWeight.Bold, Margin = new Thickness(4, 0, 0, 0) });
+            headerGrid.Children.Add(new TextBlock
+                { Text = "JSON", FontWeight = FontWeight.Bold, Margin = new Thickness(4, 0, 0, 0) });
+            headerGrid.Children.Add(new TextBlock
+                { Text = "AnyData", FontWeight = FontWeight.Bold, Margin = new Thickness(4, 0, 0, 0) });
 
             Grid.SetColumn(headerGrid.Children[1], 1);
             Grid.SetColumn(headerGrid.Children[2], 2);
@@ -74,11 +77,11 @@ namespace ModelUI.Views
                 {
                     Margin = new Thickness(2),
                     ColumnDefinitions =
-            {
-                new ColumnDefinition(GridLength.Star),
-                new ColumnDefinition(GridLength.Star),
-                new ColumnDefinition(GridLength.Star)
-            }
+                    {
+                        new ColumnDefinition(GridLength.Star),
+                        new ColumnDefinition(GridLength.Star),
+                        new ColumnDefinition(GridLength.Star)
+                    }
                 };
 
                 var nameBlock = new TextBlock { Text = entry.Name, VerticalAlignment = VerticalAlignment.Center };
@@ -109,6 +112,7 @@ namespace ModelUI.Views
                 editableFields[entry.ID] = (jsonBox, anyDataBox);
             }
         }
+
         public bool TryParseJson(string jsonInput, out JToken parsedJson)
         {
             parsedJson = null;
@@ -171,12 +175,15 @@ namespace ModelUI.Views
             }
         }
 
-        private async void MessageBox(string message)
+
+        private async void Button_OnClick(object? sender, RoutedEventArgs e)
         {
-            //Message box is in paid version of Actipro
-            //will have to make a workaround
+            var result = await MessageBox.Show(
+                "This is the message that will be displayed.",
+                "Message title",
+                MessageBoxButtons.OK,
+                MessageBoxImage.Information
+            );
         }
-
-
     }
 }

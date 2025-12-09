@@ -34,7 +34,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<!-- <PackageReference Include="ActiproSoftware.Controls.Avalonia.Pro" Version="25.1.1" /> -->
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Pro" Version="25.1.1"  />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Bars.Mvvm" Version="25.1.1" />
 		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.ColorPicker" Version="25.1.1" />
 		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.1.1" />
 	</ItemGroup>
@@ -54,5 +55,6 @@
 		<PackageReference Include="OpenSSL.NativeRuntime.NET" Version="1.0.21.1" />
 		<PackageReference Include="Salaros.ConfigParser" Version="0.3.8" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.10.196-beta" />
+		<PackageReference Include="Lib.Harmony" Version="2.4.2" />
 	</ItemGroup>
 </Project>

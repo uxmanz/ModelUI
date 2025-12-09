@@ -1,19 +1,20 @@
+using ActiproSoftware.UI.Avalonia.Themes;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Notifications;
+using Avalonia.Input;
+using Avalonia.Interactivity;
+using Database;
+using HarmonyLib;
+using ModelUI.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Avalonia.Interactivity;
-using ActiproSoftware.UI.Avalonia.Themes;
-using Avalonia;
-using Avalonia.Controls.Notifications;
-using Avalonia.Input;
-using System.Reflection;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
-using Database;
-using ModelUI.Views;
-using Newtonsoft.Json;
 
 namespace ModelUI;
 
@@ -31,13 +32,13 @@ public partial class WindowMain : Window
     /// Delta view instance for comparison or alternate view.
     /// </summary>
     public DeltaView DeltaView;
+
     public DatabaseHelper databaseHelper = new DatabaseHelper();
 
     /// <summary>
     /// Initializes a new instance of the <see cref="WindowMain"/> class.
     /// </summary>
     ///
-
     public WindowMain()
     {
         InitializeComponent();
@@ -55,6 +56,14 @@ public partial class WindowMain : Window
         DeltaView.MainContext(this);
 
         transitionControl.Content = MainView; // Set initial view
+
+
+        // var asm = typeof(ActiproSoftware.Properties.Shared.Internal.LicenseStatusView).Assembly;
+        // Type tx = asm.GetType("ActiproSoftware.Licensing.ActiproLicense");
+        // MethodInfo m = AccessTools.Method(tx, "get_IsValid");
+        // Option B: lambda / helper that already lives inside the class
+        // (no string, survives obfuscation/renaming better)
+        //Type t = AccessTools.Inner(typeof(OuterType), "Inner"); // Inner is internal
     }
 
     private void loadDBValue()
@@ -83,7 +92,6 @@ public partial class WindowMain : Window
             JSON = "{Some Other JSON test}",
             AnyData = "some other default value test"
         });
-
     }
 
     /// <summary>
