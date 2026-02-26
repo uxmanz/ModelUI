@@ -5,12 +5,13 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
 	xmlns:modelUi="clr-namespace:ModelUI"
-        x:Class="ModelUI.WindowMain"
+	xmlns:primitives="clr-namespace:ActiproSoftware.UI.Avalonia.Controls.Primitives;assembly=ActiproSoftware.Avalonia.Shared"
+	x:Class="ModelUI.WindowMain"
         Width="860" Height="590"
         WindowStartupLocation="CenterScreen"
         Icon="avares://ModelUI/Assets/main.ico"
         Classes="sample-presenter"
-        Title="Entity Adder">
+        Title="">
 	<Window.Styles>
 		<Style Selector="TextBlock.h1">
 			<Setter Property="Margin" Value="{actipro:ScaledThickness '0, 0, 0, 2'}" />
@@ -58,8 +59,8 @@
 		</Style>
 	</Window.Styles>
 	<DockPanel>
-		<actipro:ChromedTitleBar DockPanel.Dock="Top">
-			<actipro:ChromedTitleBar.Resources>
+		<actipro:WindowTitleBar DockPanel.Dock="Top">
+			<actipro:WindowTitleBar.Resources>
 				<actipro:ComparisonConverter x:Key="RightContentMarginConverter">
 					<actipro:ComparisonConverter.TrueResult>
 						<Thickness>0,0,20,0</Thickness>
@@ -68,8 +69,8 @@
 						<Thickness>0,0,0,0</Thickness>
 					</actipro:ComparisonConverter.FalseResult>
 				</actipro:ComparisonConverter>
-			</actipro:ChromedTitleBar.Resources>
-			<actipro:ChromedTitleBar.LeftContent>
+			</actipro:WindowTitleBar.Resources>
+			<actipro:WindowTitleBar.LeftContent>
 				<StackPanel Orientation="Horizontal">
 					<Button x:Name="applicationButton" Margin="0,0,20,0"
                             ContentTemplate="{actipro:GlyphTemplate Menu16}"
@@ -86,9 +87,9 @@
 						<TextBlock Name="titleTextBlock" Margin="0,-2,0,0" Text="Main" FontSize="18" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" />
 					</StackPanel>
 				</StackPanel>
-			</actipro:ChromedTitleBar.LeftContent>
-			<actipro:ChromedTitleBar.RightContent>
-				<StackPanel Margin="{Binding $parent[actipro:ChromedTitleBar].HasCaptionButtons, Converter={StaticResource RightContentMarginConverter}}" Orientation="Horizontal">
+			</actipro:WindowTitleBar.LeftContent>
+			<actipro:WindowTitleBar.RightContent>
+				<StackPanel Margin="{Binding $parent[actipro:WindowTitleBar].HasCaptionButtons, Converter={StaticResource RightContentMarginConverter}}" Orientation="Horizontal">
 					<Button ContentTemplate="{actipro:GlyphTemplate Home16}"
 							
 							Theme="{actipro:ControlTheme TitleBarButton}"
@@ -125,8 +126,8 @@
 						</StackPanel>
 					</Button>
 				</StackPanel>
-			</actipro:ChromedTitleBar.RightContent>
-		</actipro:ChromedTitleBar>
+			</actipro:WindowTitleBar.RightContent>
+		</actipro:WindowTitleBar>
 		<!-- Status Bar -->
 		<Border DockPanel.Dock="Bottom" Background="{actipro:ThemeResource StatusBarBackgroundBrush}"
                 BorderBrush="{actipro:ThemeResource StatusBarBorderBrush}" BorderThickness="{actipro:ThemeResource StatusBarBorderThickness}"

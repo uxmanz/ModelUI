@@ -56,14 +56,6 @@ public partial class WindowMain : Window
         DeltaView.MainContext(this);
 
         transitionControl.Content = MainView; // Set initial view
-
-
-        // var asm = typeof(ActiproSoftware.Properties.Shared.Internal.LicenseStatusView).Assembly;
-        // Type tx = asm.GetType("ActiproSoftware.Licensing.ActiproLicense");
-        // MethodInfo m = AccessTools.Method(tx, "get_IsValid");
-        // Option B: lambda / helper that already lives inside the class
-        // (no string, survives obfuscation/renaming better)
-        //Type t = AccessTools.Inner(typeof(OuterType), "Inner"); // Inner is internal
     }
 
     private void loadDBValue()
@@ -126,7 +118,7 @@ public partial class WindowMain : Window
         AssemblyProductAttribute productAttr = typeof(WindowMain).Assembly
             .GetCustomAttributes(typeof(AssemblyProductAttribute), true)[0] as AssemblyProductAttribute;
 
-        Title = $"{productAttr.Product}";
+        // Title = $"{productAttr.Product}";
         versionTextBlock.Text = $"{productAttr.Product}";
     }
 
