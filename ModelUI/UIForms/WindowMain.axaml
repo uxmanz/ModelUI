@@ -1,11 +1,8 @@
 <Window
 	xmlns="https://github.com/avaloniaui"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
 	xmlns:modelUi="clr-namespace:ModelUI"
-	xmlns:primitives="clr-namespace:ActiproSoftware.UI.Avalonia.Controls.Primitives;assembly=ActiproSoftware.Avalonia.Shared"
 	x:Class="ModelUI.WindowMain"
         Width="860" Height="590"
         WindowStartupLocation="CenterScreen"
@@ -90,31 +87,18 @@
 			</actipro:WindowTitleBar.LeftContent>
 			<actipro:WindowTitleBar.RightContent>
 				<StackPanel Margin="{Binding $parent[actipro:WindowTitleBar].HasCaptionButtons, Converter={StaticResource RightContentMarginConverter}}" Orientation="Horizontal">
-					<Button ContentTemplate="{actipro:GlyphTemplate Home16}"
-							
-							Theme="{actipro:ControlTheme TitleBarButton}"
-							ToolTip.Tip="Home" />
-					<Button ContentTemplate="{actipro:GlyphTemplate Previous16}"
-							Theme="{actipro:ControlTheme TitleBarButton}"
-							ToolTip.Tip="Previous" />
-					<Button
-							ContentTemplate="{actipro:GlyphTemplate Next16}"
-							Theme="{actipro:ControlTheme TitleBarButton}"
-							ToolTip.Tip="Next" />
-					<actipro:ToggleThemeButton
-							Theme="{actipro:ControlTheme TitleBarToggleThemeButton}"
-							ToolTip.Tip="Toggle Theme" />
-					<Button Theme="{actipro:ControlTheme TitleBarButton}"
+					<Button Theme="{actipro:ControlTheme TitleBarButton}" Margin="0,0,2,0"
 							ToolTip.Tip="View">
 						<Button.Flyout>
-							<MenuFlyout Placement="Bottom" Opening="OnViewMenuOpening">
+							<MenuFlyout Placement="Bottom">
+								<MenuItem Header="Ribbon Window" Click="RibbonWindow_OnClick" />
 								<MenuItem Classes="theme-menuitem-heading" Header="Controls" />
-								<MenuItem Header="Release History" Command="{Binding NavigateViewToItemInfoCommand}"  />
+								<MenuItem Header="Release History" Click="PlaceholderMenu_OnClick" />
 								<Separator />
 								<Separator />
 								<MenuItem Classes="theme-menuitem-heading" Header="Utilities" />
-								<MenuItem Header="Settings" Command="{Binding NavigateViewToItemInfoCommand}" CommandParameter="https://ActiproSoftware/SampleBrowser/Utilities/ColorPalette/ColorPaletteView" />
-								<MenuItem Header="Network" Command="{Binding NavigateViewToItemInfoCommand}" CommandParameter="https://ActiproSoftware/SampleBrowser/Utilities/ThemeResourceBrowser/ThemeResourceBrowserView" />
+								<MenuItem Header="Settings" Click="PlaceholderMenu_OnClick" />
+								<MenuItem Header="Network" Click="PlaceholderMenu_OnClick" />
 								<Separator />
 								<Separator />
 								<MenuItem Classes="theme-menuitem-heading" Header="Test Configuration" />
@@ -125,6 +109,13 @@
 							<ContentPresenter Margin="0,0,-3,0" ContentTemplate="{actipro:GlyphTemplate DropDownArrow12}" VerticalAlignment="Center" />
 						</StackPanel>
 					</Button>
+					<Button Theme="{actipro:ControlTheme TitleBarButton}" Margin="0,0,2,0"
+							ContentTemplate="{actipro:GlyphTemplate Views16}"
+							ToolTip.Tip="Ribbon Window Sample"
+							Click="RibbonWindow_OnClick" />
+					<actipro:ToggleThemeButton
+							Theme="{actipro:ControlTheme TitleBarToggleThemeButton}"
+							ToolTip.Tip="Toggle Theme" />
 				</StackPanel>
 			</actipro:WindowTitleBar.RightContent>
 		</actipro:WindowTitleBar>

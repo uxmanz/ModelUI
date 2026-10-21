@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWPF>false</UseWPF>
 		<TrimMode>copyused</TrimMode>
@@ -19,33 +19,24 @@
 		<Product>ModelUI Version: $(VersionMajor).$(VersionMinor).$([System.DateTime]::Now.ToString("ddMMyy.hhmm"))</Product>
 	</PropertyGroup>
 
-	<ItemGroup Label="Microsoft Logging" Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(DefineConstants), '^(.*;)*MS_LOGGING(;.*)*$'))">
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-	</ItemGroup>
-
 	<ItemGroup>
 		<AvaloniaResource Include="Assets\**" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Properties\PublishProfiles\" />
 	</ItemGroup>
-	<ItemGroup>
-		<Resorce Include="Assets\**" />
-	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Pro" Version="25.2.2" />
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Bars.Mvvm" Version="25.2.2" />
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.ColorPicker" Version="25.2.2" />
-		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="25.2.2" />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Pro" Version="26.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.ColorPicker" Version="26.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.Avalonia.Themes.DataGrid" Version="26.1.1" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Avalonia.Desktop" Version="11.3.12" />
-		<PackageReference Include="Avalonia" Version="11.3.12" />
-		<PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.12" />
-		<PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.12" />
-		<PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.12" />
-		<PackageReference Include="Avalonia.ReactiveUI" Version="11.3.8" />
+		<PackageReference Include="Avalonia.Desktop" Version="12.1.2" />
+		<PackageReference Include="Avalonia" Version="12.1.2" />
+		<PackageReference Include="Avalonia.Themes.Fluent" Version="12.1.2" />
+		<PackageReference Include="Avalonia.Controls.DataGrid" Version="12.1.2" />
+		<PackageReference Include="Avalonia.Fonts.Inter" Version="12.1.2" />
 		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
 		<!-- <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.2.5" /> -->
 	</ItemGroup>
@@ -54,7 +45,7 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 		<PackageReference Include="OpenSSL.NativeRuntime.NET" Version="1.0.21.1" />
 		<PackageReference Include="Salaros.ConfigParser" Version="0.3.8" />
-		<PackageReference Include="sqlite-net-pcl" Version="1.10.196-beta" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.11.285" />
 		<PackageReference Include="Lib.Harmony" Version="2.4.2" />
 	</ItemGroup>
 </Project>

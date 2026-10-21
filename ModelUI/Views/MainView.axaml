@@ -1,61 +1,316 @@
 <UserControl
-	xmlns="https://github.com/avaloniaui"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
-             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="750"
-             x:Class="ModelUI.Views.MainView">
-	<DockPanel>
-		<TabControl>
-			<TabItem IsVisible="True">
-				<TabItem.Header>
-					<TextBlock VerticalAlignment="Top" FontSize="18">MainView</TextBlock>
-				</TabItem.Header>
-				<DockPanel>
-					<WrapPanel Orientation="Horizontal" Margin="1">
-						
-						<Border Background="{actipro:ThemeResource Container2BackgroundBrush}" BorderBrush="{actipro:ThemeResource Container2BorderBrush}"
-                                BorderThickness="1"   Margin="4"
-                                CornerRadius="{actipro:ScaledCornerRadius 1.5}"
-                                Padding="{actipro:ScaledThickness 5}" Width="400"
-                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-							<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
-								<StackPanel Classes="form-input">
-									<TextBlock Classes="theme-form-control-label" Text="Visibility" />
-									<Slider Value="50" Minimum="0" Maximum="100"/>
-								</StackPanel>
-								<StackPanel Classes="form-input">
-									<TextBlock Classes="theme-form-control-label" Text="Visibility" />
-									<Slider Value="50" Minimum="0" Maximum="100" />
-								</StackPanel>
-								<StackPanel Classes="form-input">
-									<TextBlock Classes="theme-form-control-label" Text="Visibility" />
-									<Slider Value="50" Minimum="0" Maximum="100" />
-								</StackPanel>
-								<StackPanel Classes="form-input">
-									<Button Classes="theme-solid accent" Margin="3"  Content="Save Visibility" HorizontalAlignment="Stretch" Click="Button_OnClick"/>
-									<Button Classes="theme-solid accent" Margin="3" Content="Open Settings" HorizontalAlignment="Stretch"  />
-								</StackPanel>
-							</StackPanel>
-						</Border>
-					</WrapPanel>
-				</DockPanel>
-			</TabItem>
-			<TabItem IsVisible="True">
-				<TabItem.Header>
-					<TextBlock VerticalAlignment="Top" FontSize="18">Database</TextBlock>
-				</TabItem.Header>
-				<ScrollViewer>
-					<StackPanel Name="dbStackPanel">
-                        <ScrollViewer Height="600">
-                            <StackPanel Name="dbGridPanel" />
-                        </ScrollViewer>
-                        <Button Name="SaveButton" Classes="theme-solid accent" Margin="3" Click="SaveToDB_Button_OnClick" Content="Save to DB" HorizontalAlignment="Stretch" />
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
+    mc:Ignorable="d"
+    d:DesignWidth="1200"
+    d:DesignHeight="750"
+    x:Class="ModelUI.Views.MainView">
 
-					</StackPanel>
-				</ScrollViewer>
-			</TabItem>
-		</TabControl>
-	</DockPanel>
+	<!--
+        Layout:
+        Left Panel   = 20%
+        Main Content = 60%
+        Right Panel  = 20%
+    -->
+	<Grid ColumnDefinitions="2*,6*,2*">
+
+
+		<!-- ========================================================= -->
+		<!-- LEFT CONTROL PANEL - 20%                                  -->
+		<!-- ========================================================= -->
+		<Border
+            Grid.Column="0"
+            Background="{actipro:ThemeResource Container2BackgroundBrush}"
+            BorderBrush="{actipro:ThemeResource Container2BorderBrush}"
+            BorderThickness="0,0,1,0"
+            Padding="4">
+
+			<TabControl>
+
+				<!-- LEFT TAB 1 -->
+				<TabItem Header="Tools">
+					<ScrollViewer>
+						<StackPanel Margin="5" Spacing="5">
+
+							<!-- Placeholder controls -->
+							<TextBlock
+                                Text="Tools"
+                                FontSize="16"
+                                FontWeight="Bold" />
+
+							<Button Content="Tool 1"
+                                    HorizontalAlignment="Stretch" />
+
+							<Button Content="Tool 2"
+                                    HorizontalAlignment="Stretch" />
+
+							<Button Content="Tool 3"
+                                    HorizontalAlignment="Stretch" />
+
+							<Button Content="Tool 4"
+                                    HorizontalAlignment="Stretch" />
+
+						</StackPanel>
+					</ScrollViewer>
+				</TabItem>
+
+
+				<!-- LEFT TAB 2 -->
+				<TabItem Header="Layers">
+					<ScrollViewer>
+						<StackPanel Margin="5" Spacing="5">
+
+							<TextBlock
+                                Text="Layers"
+                                FontSize="16"
+                                FontWeight="Bold" />
+
+							<!-- Populate later -->
+							<TextBlock Text="Layer controls go here." />
+
+						</StackPanel>
+					</ScrollViewer>
+				</TabItem>
+
+
+				<!-- LEFT TAB 3 -->
+				<TabItem Header="Settings">
+					<ScrollViewer>
+						<StackPanel Margin="5" Spacing="5">
+
+							<TextBlock
+                                Text="Settings"
+                                FontSize="16"
+                                FontWeight="Bold" />
+
+							<!-- Populate later -->
+							<TextBlock Text="Settings controls go here." />
+
+						</StackPanel>
+					</ScrollViewer>
+				</TabItem>
+
+			</TabControl>
+
+		</Border>
+
+
+		<!-- ========================================================= -->
+		<!-- CENTER MAIN AREA - 60%                                    -->
+		<!-- ========================================================= -->
+		<Grid Grid.Column="1">
+
+			<TabControl>
+
+				<!-- ================================================= -->
+				<!-- MAIN VIEW TAB                                      -->
+				<!-- ================================================= -->
+				<TabItem IsVisible="True">
+
+					<TabItem.Header>
+						<TextBlock
+                            VerticalAlignment="Top"
+                            FontSize="18">
+							MainView
+						</TextBlock>
+					</TabItem.Header>
+
+					<ScrollViewer>
+
+						<WrapPanel
+                            Orientation="Horizontal"
+                            Margin="1">
+
+							<Border
+                                Background="{actipro:ThemeResource Container2BackgroundBrush}"
+                                BorderBrush="{actipro:ThemeResource Container2BorderBrush}"
+                                BorderThickness="1"
+                                Margin="4"
+                                CornerRadius="{actipro:ScaledCornerRadius 1.5}"
+                                Padding="{actipro:ScaledThickness 5}"
+                                Width="400">
+
+								<StackPanel
+                                    Orientation="Vertical"
+                                    HorizontalAlignment="Stretch">
+
+									<StackPanel Classes="form-input">
+										<TextBlock
+                                            Classes="theme-form-control-label"
+                                            Text="Visibility" />
+
+										<Slider
+                                            Value="50"
+                                            Minimum="0"
+                                            Maximum="100" />
+									</StackPanel>
+
+
+									<StackPanel Classes="form-input">
+										<TextBlock
+                                            Classes="theme-form-control-label"
+                                            Text="Visibility" />
+
+										<Slider
+                                            Value="50"
+                                            Minimum="0"
+                                            Maximum="100" />
+									</StackPanel>
+
+
+									<StackPanel Classes="form-input">
+										<TextBlock
+                                            Classes="theme-form-control-label"
+                                            Text="Visibility" />
+
+										<Slider
+                                            Value="50"
+                                            Minimum="0"
+                                            Maximum="100" />
+									</StackPanel>
+
+
+									<StackPanel Classes="form-input">
+
+										<Button
+                                            Classes="theme-solid accent"
+                                            Margin="3"
+                                            Content="Save Visibility"
+                                            HorizontalAlignment="Stretch"
+                                            Click="Button_OnClick" />
+
+										<Button
+                                            Classes="theme-solid accent"
+                                            Margin="3"
+                                            Content="Open Settings"
+                                            HorizontalAlignment="Stretch" />
+
+									</StackPanel>
+
+								</StackPanel>
+
+							</Border>
+
+						</WrapPanel>
+
+					</ScrollViewer>
+
+				</TabItem>
+
+
+				<!-- ================================================= -->
+				<!-- DATABASE TAB                                       -->
+				<!-- ================================================= -->
+				<TabItem IsVisible="True">
+
+					<TabItem.Header>
+						<TextBlock
+                            VerticalAlignment="Top"
+                            FontSize="18">
+							Database
+						</TextBlock>
+					</TabItem.Header>
+
+					<ScrollViewer>
+
+						<StackPanel Name="dbStackPanel">
+
+							<ScrollViewer Height="600">
+								<StackPanel Name="dbGridPanel" />
+							</ScrollViewer>
+
+							<Button
+                                Name="SaveButton"
+                                Classes="theme-solid accent"
+                                Margin="3"
+                                Click="SaveToDB_Button_OnClick"
+                                Content="Save to DB"
+                                HorizontalAlignment="Stretch" />
+
+						</StackPanel>
+
+					</ScrollViewer>
+
+				</TabItem>
+
+			</TabControl>
+
+		</Grid>
+
+
+		<!-- ========================================================= -->
+		<!-- RIGHT CONTROL PANEL - 20%                                 -->
+		<!-- ========================================================= -->
+		<Border
+            Grid.Column="2"
+            Background="{actipro:ThemeResource Container2BackgroundBrush}"
+            BorderBrush="{actipro:ThemeResource Container2BorderBrush}"
+            BorderThickness="1,0,0,0"
+            Padding="4">
+
+			<TabControl>
+
+				<!-- RIGHT TAB 1 -->
+				<TabItem Header="Properties">
+					<ScrollViewer>
+						<StackPanel Margin="5" Spacing="5">
+
+							<TextBlock
+                                Text="Properties"
+                                FontSize="16"
+                                FontWeight="Bold" />
+
+							<!-- Placeholder -->
+							<TextBlock Text="Selected item properties go here." />
+
+						</StackPanel>
+					</ScrollViewer>
+				</TabItem>
+
+
+				<!-- RIGHT TAB 2 -->
+				<TabItem Header="Inspector">
+					<ScrollViewer>
+						<StackPanel Margin="5" Spacing="5">
+
+							<TextBlock
+                                Text="Inspector"
+                                FontSize="16"
+                                FontWeight="Bold" />
+
+							<!-- Placeholder -->
+							<TextBlock Text="Inspector controls go here." />
+
+						</StackPanel>
+					</ScrollViewer>
+				</TabItem>
+
+
+				<!-- RIGHT TAB 3 -->
+				<TabItem Header="Output">
+					<ScrollViewer>
+						<StackPanel Margin="5" Spacing="5">
+
+							<TextBlock
+                                Text="Output"
+                                FontSize="16"
+                                FontWeight="Bold" />
+
+							<!-- Placeholder -->
+							<TextBlock Text="Output information goes here." />
+
+						</StackPanel>
+					</ScrollViewer>
+				</TabItem>
+
+			</TabControl>
+
+		</Border>
+
+	</Grid>
+
 </UserControl>
+

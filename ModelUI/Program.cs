@@ -1,9 +1,5 @@
 ﻿using Avalonia;
-using Avalonia.ReactiveUI;
-using HarmonyLib;
 using System;
-using System.Diagnostics;
-using System.Reflection;
 
 namespace ModelUI;
 
@@ -31,6 +27,5 @@ class Program
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .WithInterFont()
-            .LogToTrace()
-            .UseReactiveUI();
+            .LogToTrace();
 }

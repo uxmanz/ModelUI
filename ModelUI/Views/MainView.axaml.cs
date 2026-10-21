@@ -1,19 +1,14 @@
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Newtonsoft.Json;
-using System.Text.RegularExpressions;
 using System;
 using System.Collections.Generic;
-using System.Timers;
 using Avalonia.Media;
-using Avalonia.Threading;
 using Newtonsoft.Json.Linq;
 using Avalonia;
 using Avalonia.Layout;
 using Database;
-using System.Text.Json;
 using ActiproSoftware.UI.Avalonia.Controls;
 using JsonException = Newtonsoft.Json.JsonException;
 

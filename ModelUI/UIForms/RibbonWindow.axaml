@@ -1,0 +1,174 @@
+﻿<actipro:RibbonWindow
+	x:Class="ModelUI.RibbonWindow"
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:actipro="http://schemas.actiprosoftware.com/avaloniaui"
+	Width="1000" Height="650"
+	MinWidth="700" MinHeight="450"
+	WindowStartupLocation="CenterOwner"
+	Icon="avares://ModelUI/Assets/main.ico"
+	Title="ModelUI - Ribbon Window Sample">
+	<actipro:RibbonWindow.Styles>
+		<Style Selector="actipro|Ribbon">
+			<Setter Property="IsApplicationButtonVisible" Value="False" />
+			<Setter Property="Margin" Value="0" />
+		</Style>
+	</actipro:RibbonWindow.Styles>
+
+	<actipro:RibbonWindow.Resources>
+		<DrawingImage x:Key="NewIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="OpenIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M19,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10L12,6H19C20.1,6 21,6.9 21,8H9.25C8.56,8 8,8.56 8,9.25V18L5.3,9H21V18C21,19.1 20.1,20 19,20Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="SaveIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M17,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3M19,19H5V5H16.17L19,7.83V19M12,12A2,2 0 0,0 10,14A2,2 0 0,0 12,16A2,2 0 0,0 14,14A2,2 0 0,0 12,12M6,6H15V10H6V6Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="CutIcon">
+			<DrawingImage.Drawing>
+				<DrawingGroup>
+					<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}">
+						<GeometryDrawing.Geometry>
+							<GeometryGroup>
+								<EllipseGeometry Center="7,16" RadiusX="2.8" RadiusY="2.8" />
+								<EllipseGeometry Center="17,17.5" RadiusX="2.8" RadiusY="2.8" />
+							</GeometryGroup>
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="M8 3 L13.5 14.5 M16.5 3 L12.5 12 M14.5 13.5 L19 18">
+						<GeometryDrawing.Pen>
+							<Pen Brush="{DynamicResource ButtonForegroundBrush}" Thickness="1.6" LineJoin="Round" />
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup>
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="CopyIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="PasteIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M19,2H14.82C14.4,0.84 13.3,0 12,0C10.7,0 9.6,0.84 9.18,2H5C3.9,2 3,2.9 3,4V20C3,21.1 3.9,22 5,22H19C20.1,22 21,21.1 21,20V4C21,2.9 20.1,2 19,2M12,2C12.55,2 13,2.45 13,3C13,3.55 12.55,4 12,4C11.45,4 11,3.55 11,3C11,2.45 11.45,2 12,2M19,20H5V4H7V7H17V4H19V20Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="BoldIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M13.5,15.5H10V12.5H13.5C14.33,12.5 15,13.17 15,14C15,14.83 14.33,15.5 13.5,15.5M10,6.5H13C13.83,6.5 14.5,7.17 14.5,8C14.5,8.83 13.83,9.5 13,9.5H10M15.6,10.79C16.57,11.11 17.25,12.05 17.25,13C17.25,13.88 16.88,14.62 16.07,15.36C16.81,15.88 17.26,16.69 17.26,17.5C17.25,19.02 16,20.5 14,20.5H7V3.5H14.5C16.5,3.5 17.5,5 17.5,6.5C17.5,7.53 17.06,8.53 15.6,10.79M14,8.5C14.83,8.5 15.5,7.83 15.5,7C15.5,6.17 14.83,5.5 14,5.5H10V8.5M14,17.5C14.83,17.5 15.5,16.83 15.5,16C15.5,15.17 14.83,14.5 14,14.5H10V17.5H14Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="ItalicIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M10,4V7H12.21L8.79,15H6V18H14V15H11.79L15.21,7H18V4H10Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="UndoIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M12.5,8C9.85,8 7.45,9 5.6,10.6L2,7V16H11L7.38,12.38C8.77,11.22 10.54,10.5 12.5,10.5C16.04,10.5 19.05,12.81 20.1,16L22.47,15.22C21.08,11.03 17.15,8 12.5,8Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="RedoIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M18.4,10.6C16.55,9 14.15,8 11.5,8C6.85,8 2.92,11.03 1.53,15.22L3.9,16C4.95,12.81 7.96,10.5 11.5,10.5C13.46,10.5 15.23,11.22 16.62,12.38L13,16H22V7L18.4,10.6Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="WrapIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M4,19H6V17H4V19M4,13H6V11H4V13M4,7H6V5H4V7M18,5V7H11V5H18M4,15H8V13H4V15M4,9H8V7H4V9M18,9V11H11V9H18M14,15V17H10V19H14V21H16V15H14Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="ZoomInIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M15.5,14H14.71L14.43,13.73C15.41,12.59 16,11.11 16,9.5A6.5,6.5 0 0,0 9.5,3A6.5,6.5 0 0,0 3,9.5A6.5,6.5 0 0,0 9.5,16C11.11,16 12.59,15.41 13.73,14.43L14,14.71V15.5L19,20.5L20.5,19L15.5,14M9.5,14C7,14 5,12 5,9.5C5,7 7,5 9.5,5C12,5 14,7 14,9.5C14,12 12,14 9.5,14M12,10H10V12H9V10H7V9H9V7H10V9H12V10Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="ZoomOutIcon">
+			<DrawingImage.Drawing>
+				<GeometryDrawing Brush="{DynamicResource ButtonForegroundBrush}" Geometry="M15.5,14H14.71L14.43,13.73C15.41,12.59 16,11.11 16,9.5A6.5,6.5 0 0,0 9.5,3A6.5,6.5 0 0,0 3,9.5A6.5,6.5 0 0,0 9.5,16C11.11,16 12.59,15.41 13.73,14.43L14,14.71V15.5L19,20.5L20.5,19L15.5,14M9.5,14C7,14 5,12 5,9.5C5,7 7,5 9.5,5C12,5 14,7 14,9.5C14,12 12,14 9.5,14M7,9H12V10H7V9Z" />
+			</DrawingImage.Drawing>
+		</DrawingImage>
+	</actipro:RibbonWindow.Resources>
+
+	<actipro:RibbonContainerPanel>
+		<actipro:Ribbon QuickAccessToolBarMode="None">
+			<actipro:Ribbon.TabRowToolBarContent>
+				<actipro:StandaloneToolBar BorderThickness="0">
+					<actipro:BarButton Key="Save" SmallIcon="{StaticResource SaveIcon}" ToolTip.Tip="Save" Click="SaveButton_OnClick" />
+					<actipro:BarButton Key="Undo" SmallIcon="{StaticResource UndoIcon}" ToolTip.Tip="Undo" Click="UndoButton_OnClick" />
+					<actipro:BarButton Key="Redo" SmallIcon="{StaticResource RedoIcon}" ToolTip.Tip="Redo" Click="RedoButton_OnClick" />
+					<actipro:BarButton Key="Cut" SmallIcon="{StaticResource CutIcon}" ToolTip.Tip="Cut" Click="CutButton_OnClick" />
+					<actipro:BarButton Key="Copy" SmallIcon="{StaticResource CopyIcon}" ToolTip.Tip="Copy" Click="CopyButton_OnClick" />
+					<actipro:BarButton Key="Paste" SmallIcon="{StaticResource PasteIcon}" ToolTip.Tip="Paste" Click="PasteButton_OnClick" />
+				</actipro:StandaloneToolBar>
+			</actipro:Ribbon.TabRowToolBarContent>
+			<actipro:RibbonTabItem Label="Home">
+				<actipro:RibbonGroup Label="Clipboard">
+					<actipro:BarButton Label="Paste" VariantSize="Large"
+						LargeIcon="{StaticResource PasteIcon}" SmallIcon="{StaticResource PasteIcon}"
+						ToolTip.Tip="Paste clipboard text"
+						Click="PasteButton_OnClick" />
+					<actipro:BarButton Label="Cut" SmallIcon="{StaticResource CutIcon}" ToolTip.Tip="Cut selection" Click="CutButton_OnClick" />
+					<actipro:BarButton Label="Copy" SmallIcon="{StaticResource CopyIcon}" ToolTip.Tip="Copy selection" Click="CopyButton_OnClick" />
+				</actipro:RibbonGroup>
+				<actipro:RibbonGroup Label="Font">
+					<actipro:BarToggleButton Label="Bold" SmallIcon="{StaticResource BoldIcon}" ToolTip.Tip="Bold" Click="BoldButton_OnClick" />
+					<actipro:BarToggleButton Label="Italic" SmallIcon="{StaticResource ItalicIcon}" ToolTip.Tip="Italic" Click="ItalicButton_OnClick" />
+				</actipro:RibbonGroup>
+				<actipro:RibbonGroup Label="Editing">
+					<actipro:BarButton Label="Undo" SmallIcon="{StaticResource UndoIcon}" ToolTip.Tip="Undo" Click="UndoButton_OnClick" />
+					<actipro:BarButton Label="Redo" SmallIcon="{StaticResource RedoIcon}" ToolTip.Tip="Redo" Click="RedoButton_OnClick" />
+				</actipro:RibbonGroup>
+			</actipro:RibbonTabItem>
+
+			<actipro:RibbonTabItem Label="File">
+				<actipro:RibbonGroup Label="Document">
+					<actipro:BarButton Label="New" SmallIcon="{StaticResource NewIcon}" ToolTip.Tip="New document" Click="NewButton_OnClick" />
+					<actipro:BarButton Label="Open" SmallIcon="{StaticResource OpenIcon}" ToolTip.Tip="Open a document" Click="OpenButton_OnClick" />
+					<actipro:BarButton Label="Save" SmallIcon="{StaticResource SaveIcon}" ToolTip.Tip="Save the document" Click="SaveButton_OnClick" />
+				</actipro:RibbonGroup>
+			</actipro:RibbonTabItem>
+
+			<actipro:RibbonTabItem Label="View">
+				<actipro:RibbonGroup Label="Document">
+					<actipro:BarToggleButton Label="Word Wrap" SmallIcon="{StaticResource WrapIcon}" ToolTip.Tip="Toggle word wrapping" Click="WordWrapButton_OnClick" />
+				</actipro:RibbonGroup>
+				<actipro:RibbonGroup Label="Zoom">
+					<actipro:BarButton Label="Zoom In" SmallIcon="{StaticResource ZoomInIcon}" ToolTip.Tip="Increase font size" Click="ZoomInButton_OnClick" />
+					<actipro:BarButton Label="Zoom Out" SmallIcon="{StaticResource ZoomOutIcon}" ToolTip.Tip="Decrease font size" Click="ZoomOutButton_OnClick" />
+				</actipro:RibbonGroup>
+			</actipro:RibbonTabItem>
+		</actipro:Ribbon>
+
+		<DockPanel Grid.Row="1">
+			<Border DockPanel.Dock="Bottom"
+				Background="{actipro:ThemeResource StatusBarBackgroundBrush}"
+				BorderBrush="{actipro:ThemeResource StatusBarBorderBrush}"
+				BorderThickness="{actipro:ThemeResource StatusBarBorderThickness}"
+				TextElement.Foreground="{actipro:ThemeResource StatusBarForegroundBrush}">
+				<Grid Margin="0,0,0,1" ColumnDefinitions="*,Auto">
+					<TextBlock x:Name="notepadStatusTextBlock"
+						Margin="{actipro:ScaledThickness '2.5,0.5'}"
+						VerticalAlignment="Center"
+						Text="Ready" />
+					<actipro:WindowResizeGrip Grid.Column="1" />
+				</Grid>
+			</Border>
+			<TextBox x:Name="editorTextBox"
+				Margin="8"
+				AcceptsReturn="True"
+				TextWrapping="Wrap"
+				ScrollViewer.VerticalScrollBarVisibility="Auto"
+				ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+				FontSize="14"
+				Text="Welcome to the ribbon window sample.&#xA;&#xA;Type here like a notepad. Try the ribbon controls in the Home, File, and View tabs." />
+		</DockPanel>
+	</actipro:RibbonContainerPanel>
+</actipro:RibbonWindow>
